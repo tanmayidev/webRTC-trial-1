@@ -15,4 +15,12 @@ app.get("/:room", (req, res) => {
   res.render("room", { roomId: req.params.room }); // renders view called room
 });
 
+// runs when user connects to webpage
+io.on("connection", (socket) => {
+  // event-listener join-room is called when user connects to room
+  socket.on("join-room", (roomId, userId) => {
+    console.log(roomId, userId);
+  });
+});
+
 server.listen(3000);
