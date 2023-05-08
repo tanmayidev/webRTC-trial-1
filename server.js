@@ -24,6 +24,10 @@ io.on("connection", (socket) => {
     socket.broadcast.to(roomId).emit("user-connected", userId);
     // socket.to(roomId).emit("user-connected", userId)
     // broadcast message to everyone except yourself
+
+    socket.on("disconnect", () => {
+      socket.broadcast.to(roomId).emit("user-disconnected", userId);
+    });
   });
 });
 

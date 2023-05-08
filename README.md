@@ -1,6 +1,6 @@
-# peer-talk-webRTC
+# peer-verse-webRTC
 
-Peer Talk is a webRTC app
+Peer Verse is an app made using webRTC
 
 ## Dependencies
 
@@ -17,3 +17,8 @@ Peer Talk is a webRTC app
 
 - Running peerjs server
   `peerjs --port 3001`
+
+## Running the app
+
+- Note : Peerjs should be running
+  `npm run devStart`
