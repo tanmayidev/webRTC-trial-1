@@ -19,7 +19,11 @@ app.get("/:room", (req, res) => {
 io.on("connection", (socket) => {
   // event-listener join-room is called when user connects to room
   socket.on("join-room", (roomId, userId) => {
-    console.log(roomId, userId);
+    /* setup video connection with new user telling all existing users that new user joined*/
+    socket.join(roomId); // join room
+    socket.broadcast.to(roomId).emit("user-connected", userId);
+    // socket.to(roomId).emit("user-connected", userId)
+    // broadcast message to everyone except yourself
   });
 });
 
